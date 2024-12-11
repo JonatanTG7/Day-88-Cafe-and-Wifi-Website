@@ -39,14 +39,18 @@ with app.app_context():
     db.create_all()
 
 @app.route('/')
-def hello_world():
-    return 'Hello World'
+def home():
+    return redirect(url_for('show_all_cafes'))
 
 @app.route('/cafes')
 def show_all_cafes():
     all_cafes = db.session.query(Cafe).all()
-    print(all_cafes)
     return render_template("index.html" , cafes=all_cafes)
+
+@app.route('/cafe/<int:cafe_id>')
+def cafe_details(cafe_id):
+    cafe = Cafe.query.get_or_404(cafe_id)
+    return render_template('cafe_details.html', cafe=cafe)
 
 @app.route('/add', methods=['GET','POST'])
 def add_cafe():
