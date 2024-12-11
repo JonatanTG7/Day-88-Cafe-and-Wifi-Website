@@ -1,0 +1,115 @@
+<form action="/update/{{ cafe.id }}" method="POST">
+  <div
+  style="
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  "
+>
+  <h1>Update {{ cafe.name }}</h1>
+  <div style="margin-bottom: 15px">
+    <label for="name">Cafe Name:</label>
+    <input type="text" id="name" name="name" style="width: 100%; padding: 8px; margin-top: 5px" value="{{ cafe.name }}" required>
+  </div>
+    <div style="margin-bottom: 15px">
+      <label for="location">Location:</label>
+      <input
+        type="text"
+        id="location"
+        name="location"
+        style="width: 100%; padding: 8px; margin-top: 5px"
+        value="{{ cafe.location }}"
+        required
+      />
+    </div>
+
+    <div style="margin-bottom: 15px">
+      <label for="img_url">Image URL:</label>
+      <input
+        type="url"
+        id="img_url"
+        name="img_url"
+        style="width: 100%; padding: 8px; margin-top: 5px"
+        value="{{ cafe.img_url }}"
+        required
+      />
+    </div>
+
+    <div style="margin-bottom: 15px">
+      <label for="map_url">Map URL:</label>
+      <input
+        type="url"
+        id="map_url"
+        name="map_url"
+        style="width: 100%; padding: 8px; margin-top: 5px"
+        value="{{ cafe.map_url }}"
+        required
+      />
+    </div>
+
+    <div style="margin-bottom: 15px">
+      <label for="seats">Seats:</label>
+      <input
+        type="text"
+        id="seats"
+        name="seats"
+        style="width: 100%; padding: 8px; margin-top: 5px"
+        value="{{ cafe.seats }}"
+
+      />
+    </div>
+
+    <div style="margin-bottom: 15px">
+      <label for="coffee_price">Coffee Price:</label>
+      <input
+        type="text"
+        id="coffee_price"
+        name="coffee_price"
+        style="width: 100%; padding: 8px; margin-top: 5px"
+        value="{{ cafe.coffee_price }}"
+      />
+    </div>
+
+    <input type="checkbox" id="has_wifi" name="has_wifi" {% if cafe.has_wifi %}checked{% endif %}>
+    <label for="has_wifi">Has Wi-Fi</label><br><br>
+    
+    <input type="checkbox" id="has_sockets" name="has_sockets" {% if cafe.has_sockets %}checked{% endif %}>
+    <label for="has_sockets">Has Sockets</label><br><br>
+    
+    <input type="checkbox" id="has_toilet" name="has_toilet" {% if cafe.has_toilet %}checked{% endif %}>
+    <label for="has_toilet">Has Toilets</label><br><br>
+    
+    <input type="checkbox" id="can_take_calls" name="can_take_calls" {% if cafe.can_take_calls %}checked{% endif %}>
+    <label for="can_take_calls">Can Take Calls</label><br><br>
+    
+    <button
+          type="submit"
+          style="
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+          "
+        >
+          Update Cafe
+        </button>
+      </form>
+        <a
+        href="/cafes"
+        style="
+          display: inline-block;
+          margin-top: 15px;
+          padding: 10px 20px;
+          background-color: #6c757d;
+          color: white;
+          text-decoration: none;
+          border-radius: 5px;
+        "
+        >Cancel</a
+      >
+  </div>
+
